@@ -105,16 +105,17 @@ class PriceMachine:
         return results
 
 
-pm = PriceMachine()
-pm.load_prices(path)
+if __name__ == '__main__':
+    pm = PriceMachine()
+    pm.load_prices(path)
 
-while True:
-    user_input = input("Введите текст для поиска (или 'exit' для выхода): ")
-    if user_input.lower() == 'exit':
-        break
-    results = pm.find_text(user_input)
-    if len(results) == 0:
-        print("Товары не найдены.")
+    while True:
+        user_input = input("Введите текст для поиска (или 'exit' для выхода): ")
+        if user_input.lower() == 'exit':
+            break
+        results = pm.find_text(user_input)
+        if len(results) == 0:
+            print("Товары не найдены.")
 
-print('the end')
-print(pm.export_to_html())
+    print('the end')
+    print(pm.export_to_html())
